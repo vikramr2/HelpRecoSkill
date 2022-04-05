@@ -1,0 +1,160 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "reco me",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "BasicUses",
+          "slots": [
+            {
+              "name": "basicuse",
+              "type": "basicuse"
+            }
+          ],
+          "samples": [
+            "i want to see basic uses",
+            "basic uses"
+          ]
+        },
+        {
+          "name": "FormatSelection",
+          "slots": [
+            {
+              "name": "basicuse",
+              "type": "basicuse"
+            }
+          ],
+          "samples": [
+            "show me {basicuse}",
+            "{basicuse}"
+          ]
+        },
+        {
+          "name": "VideoIntent",
+          "slots": [
+            {
+              "name": "basicuse",
+              "type": "basicuse"
+            }
+          ],
+          "samples": [
+            "please play a video",
+            "play a video",
+            "video",
+            "play a video on {basicuse}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "cheese"
+              }
+            }
+          ],
+          "name": "demoType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "back",
+                "synonyms": [
+                  "last",
+                  "previous"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "next",
+                "synonyms": [
+                  "ahead",
+                  "forward"
+                ]
+              }
+            }
+          ],
+          "name": "nextback"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "alarms"
+              }
+            },
+            {
+              "name": {
+                "value": "shopping",
+                "synonyms": [
+                  "retail",
+                  "shop",
+                  "grocery",
+                  "groceries"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "information"
+              }
+            },
+            {
+              "name": {
+                "value": "music"
+              }
+            },
+            {
+              "name": {
+                "value": "weather"
+              }
+            },
+            {
+              "name": {
+                "value": "news"
+              }
+            }
+          ],
+          "name": "basicuse"
+        }
+      ]
+    }
+  },
+  "version": "7"
+}

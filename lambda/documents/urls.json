@@ -1,0 +1,9 @@
+{
+    "news": "https://hfa.s3.us-east-2.amazonaws.com/videos/News.mp4",
+    "weather": "https://hfa.s3.us-east-2.amazonaws.com/videos/Weather.mp4",
+    "alarms": "https://hfa.s3.us-east-2.amazonaws.com/videos/Alarms.mov",
+    "information": "https://hfa.s3.us-east-2.amazonaws.com/videos/Information.mp4",
+    "shopping": "https://hfa.s3.us-east-2.amazonaws.com/videos/Lists.mp4",
+    "music": "https://hfa.s3.us-east-2.amazonaws.com/videos/Music.mov",
+    "reminders": "https://hfa.s3.us-east-2.amazonaws.com/videos/Reminders.mp4"
+}
