@@ -13,10 +13,9 @@
             "dimensions": {
                 "touchWrapperWidth": "auto",
                 "touchWrapperHeight": "80vh",
-                "containerWidth": "50vw",
+                "containerWidth": "33vw",
                 "imageWidth": "50vh",
                 "imageHeight": "50vh",
-                "imageBorderRadius": "999vh",
                 "itemBorderWidth": "5dp",
                 "textWidth": "40vw",
                 "textHeight": "8vh",
@@ -30,7 +29,7 @@
                 "touchWrapperWidth": "60vw",
                 "touchWrapperHeight": "70vh",
                 "containerWidth": "50vw",
-                "imageWidth": "50vw",
+                "imageWidth": "33vw",
                 "imageHeight": "50vh",
                 "textWidth": "50vw",
                 "textHeight": "20vh",
@@ -193,6 +192,11 @@
                                         "id": "Environment",
                                         "name": "Environmental Controls",
                                         "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/lightbulb.png"
+                                    },
+                                    {
+                                        "id": "Social",
+                                        "name": "Social Communication",
+                                        "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/social.png"
                                     }
                                 ],
                                 "width": "100vw",
@@ -221,14 +225,12 @@
                         "description": "For Landscape Hubs",
                         "when": "${@viewportProfile != @hubRoundSmall}",
                         "type": "Container",
-                        "direction": "column",
-                        "alignItems": "center",
-                        "justifyContent": "center",
                         "items": [
                             {
                                 "type": "Container",
                                 "paddingTop": "10vh",
                                 "direction": "row",
+                                "scrollDirection": "horizontal",
                                 "data": [
                                     {
                                         "id": "Basic",
@@ -239,6 +241,11 @@
                                         "id": "Environment",
                                         "name": "Environmental Controls",
                                         "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/lightbulb.png"
+                                    },
+                                    {
+                                        "id": "Social",
+                                        "name": "Social Communication",
+                                        "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/social.png"
                                     }
                                 ],
                                 "items": [

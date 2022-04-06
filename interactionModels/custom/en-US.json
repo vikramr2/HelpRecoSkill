@@ -76,6 +76,20 @@
             "video",
             "play a video on {basicuse}"
           ]
+        },
+        {
+          "name": "TrySaying",
+          "slots": [
+            {
+              "name": "basicuse",
+              "type": "basicuse"
+            }
+          ],
+          "samples": [
+            "step by step",
+            "steps",
+            "give me suggestions on what to say for {basicuse}"
+          ]
         }
       ],
       "types": [
@@ -156,5 +170,5 @@
       ]
     }
   },
-  "version": "7"
+  "version": "9"
 }

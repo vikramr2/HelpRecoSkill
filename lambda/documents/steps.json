@@ -1,0 +1,232 @@
+ {
+    "news": [
+        {
+            "prompt": "Try saying Alexa, what is in the news?",
+            "answer": "alexa what is in the news"
+        },
+        {
+            "prompt": "Another way to check the news is to say Alexa, what is my flash briefing?",
+            "answer": "alexa what is my flash briefing"
+        },
+        {
+            "prompt": "To get news from a specific station you can say Alexa, what is the latest news from n.b.c.?",
+            "answer": "alexa what is the latest news from n.b.c."
+        }
+    ],
+    "weather": [
+        {
+            "prompt": "Try saying Alexa, will it rain today?",
+            "answer": "alexa will it rain today"
+        },
+        {
+            "prompt": "Another way to check the weather is to say Alexa, what is the weather like?",
+            "answer": "alexa what is the weather like"
+        },
+        {
+            "prompt": "Try saying Alexa, what is the weather going to be like this weekend?",
+            "answer": "alexa what is the weather going to be like this weekend"
+        },
+        {
+            "prompt": "Try saying Alexa, what is the weather in Chicago?",
+            "answer": "alexa what is the weather like in chicago"
+        }
+    ],
+    "music": [
+        {
+            "prompt": "Try saying Alexa, what is popular from The Beatles?",
+            "answer": "alexa what is popular from the beatles"
+        },
+        {
+            "prompt": "To play a random list of songs from The Beatles, you can say Alexa, sample songs from The Beatles",
+            "answer": "alexa sample songs from the beatles"
+        },
+        {
+            "prompt": "To play only one song, say Alexa, play Hey Jude by The Beatles",
+            "answer": "alexa play hey jude by the beatles"
+        },
+        {
+            "prompt": "To play an album, you can try saying Alexa play Abbey Road by The Beatles",
+            "answer": "alexa play abbey road by the beatles"
+        }
+    ],
+    "information": [
+        {
+            "prompt": "Try Saying, Alexa what is COVID 19?",
+            "answer": "alexa what is covid nineteen"
+        },
+        {
+            "prompt": "Try Saying, Alexa what is the definition of a virus?",
+            "answer": "alexa what is the definition of a virus"
+        },
+        {
+            "prompt": "Try Saying, Alexa tell me about COVID 19",
+            "answer": "alexa tell me about covid nineteen"
+        }
+    ],
+    "photos": [
+        {
+            "prompt": "Try saying, Alexa take my photo",
+            "answer": "alexa take my photo"
+        },
+        {
+            "prompt": "Try saying, Alexa show me pictures of giraffes",
+            "answer": "alexa show me pictures of giraffes"
+        },
+        {
+            "prompt": "If you want to navigate to the fifth picture in your list, try saying Alexa show me picture number five",
+            "answer": "alexa show me picture number five"
+        },
+        {
+            "prompt": "If you want to go to the next photo in the list, try saying Alexa next photo",
+            "answer": "alexa next photo"
+        },
+        {
+            "prompt": "And vice versa, try saying Alexa previous photo",
+            "answer": "alexa previous photo"
+        },
+        {
+            "prompt": "To look at your image gallery, try saying Alexa, show my photos",
+            "answer": "alexa show my photos"
+        }
+    ],
+    "videos": [
+        {
+            "prompt": "Try saying Alexa show me videos of cats",
+            "answer": "alexa show me videos of cats"
+        },
+        {
+            "prompt": "If you want to search Youtube, try saying Alexa show me cat videos on Youtube",
+            "answer": "alexa show me cat videos on youtube"
+        },
+        {
+            "prompt": "If you would like to watch a movie or a series, try saying Alexa play good will hunting on prime video",
+            "answer": "alexa play good will hunting on prime video"
+        }
+    ],
+    "alarms": [
+        {
+            "prompt": "To set an alarm, say Alexa wake me up at 7 A.M.",
+            "answer": "alexa wake me up at seven a.m."
+        },
+        {
+            "prompt": "To review your alarms, you can say, Alexa when is my next alarm?",
+            "answer": "alexa when is my next alarm"
+        },
+        {
+            "prompt": "To set weekly alarms, say Alexa set a repeating alarm for Monday at seven a.m.",
+            "answer": "alexa set a repeating alarm for monday at seven a.m."
+        },
+        {
+            "prompt": "To remove that 7 A.M. alarm we set earlier, say Alexa cancel my alarm for seven a.m.",
+            "answer": "alexa cancel my alarm for seven a.m."
+        }
+    ],
+    "timers": [
+        {
+            "prompt": "To set a timer, say Alexa set a timer for five minutes",
+            "answer": "alexa set a timer for five minutes"
+        },
+        {
+            "prompt": "Try saying Alexa how much time is left on the timer?",
+            "answer": "alexa how much time is left on the timer"
+        },
+        {
+            "prompt": "To cancel your timer, say Alexa, stop my timer",
+            "answer": "alexa stop my timer"
+        }
+    ],
+    "reminders": [
+        {
+            "prompt": "To set a short term reminder, say alexa remind me to water my plants at three p.m.",
+            "answer": "alexa remind me to water my plants at three p.m."
+        },
+        {
+            "prompt": "To set a long term reminder, say alexa set a reminder to water my plants for three p.m. on wednesday",
+            "answer": "alexa set a reminder to water my plants for three p.m. on wednesday"
+        },
+        {
+            "prompt": "To review your reminders, say alexa what are my reminders",
+            "answer": "alexa what are my reminders"
+        }
+    ],
+    "calendars": [
+        {
+            "prompt": "To check your calendar, say alexa what is on my calendar",
+            "answer": "alexa what is on my calendar"
+        },
+        {
+            "prompt": "To add an event, say alexa add my birthday to my calendar",
+            "answer": "alexa add my birthday to my calendar"
+        },
+        {
+            "prompt": "To remove an event, say alexa cancel my friends birthday on my calendar",
+            "answer": "alexa cancel my friends birthday on my calendar"
+        },
+        {
+            "prompt": "To reschedule an event, say alexa reschedule my meeting on monday to wednesday",
+            "answer": "alexa reschedule my meeting on monday to wednesday"
+        }
+    ],
+    "shopping": [
+        {
+            "prompt": "To add an item to your grocery list, say alexa add green beans to my grocery list",
+            "answer": "alexa add green beans to my grocery list"
+        },
+        {
+            "prompt": "To check whats on your grocery list, say alexa what is on my grocery list",
+            "answer": "alexa what is on my grocery list"
+        },
+        {
+            "prompt": "You can also say, alexa add green beans to my shopping list",
+            "answer": "alexa add green beans to my shopping list"
+        },
+        {
+            "prompt": "Likewise, you can review your shopping list by saying alexa what is on my shopping list",
+            "answer": "alexa what is on my shopping list"
+        }
+    ],
+    "To-Do List": [
+        {
+            "prompt": "Try saying, alexa create a to do list",
+            "answer": "alexa create a to do list"
+        },
+        {
+            "prompt": "To add to your to do list, you can say alexa add watering my plants to my to do list",
+            "answer": "alexa add watering my plants to my to do list"
+        },
+        {
+            "prompt": "To check your to do list, you can say alexa what is on my to do list",
+            "answer": "alexa what is on my to do list"
+        }
+    ],
+    "lights0": [
+        "To use Hue bulbs, you must first connect the Hue Bridge to a power outlet as well as your router.",
+        "Find an open Ethernet port (see example picture) on your router and connect one end of the provided cable to it. Then connect the other end to the Hue Bridge.",
+        "You should see the three blue lights on the Bridge turn on, indicating that it is ready to be paired to your bulbs.",
+        "etc."
+        ],
+    "doorbell0": [
+        "Press the home button on your device, as seen in the example picture. Some newer devices do not have a physical home button (circled in red). Instead, swipe up from the bottom center of the screen (shown in the yellow hand icon).",
+        "If you do not have Ring account, tap CREATE ACCOUNT",
+        "You should now see a page titled What’s your email address?. Fill out the relevant information in the designated box (see the example picture for useful tips).",
+        "etc."
+        ],
+    "lights1": [
+        "To use Hue bulbs, you must first connect the Hue Bridge to a power outlet as well as your router.",
+        "Find an open Ethernet port (see example picture) on your router",
+        "Connect one end of the provided cable to it.",
+        "Connect the other end to the Hue Bridge.",
+        "You should see the three blue lights on the Bridge turn on",
+        "This means that it is ready to be paired to your bulbs.",
+        "etc."
+        ],
+    "doorbell1": [
+        "Press the home button on your device, as seen in the example picture.",
+        "Some newer devices do not have a physical home button (circled in red).",
+        "Instead, swipe up from the bottom center of the screen (shown in the yellow hand icon).",
+        "If you do not have Ring account, tap CREATE ACCOUNT",
+        "You should now see a page titled What’s your email address?.",
+        "Fill out the relevant information in the designated box (see the example picture for useful tips).",
+        "etc."
+        ]
+ }

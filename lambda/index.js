@@ -5,6 +5,7 @@
  * */
 const Alexa = require('ask-sdk-core');
 const urls = require('./documents/urls.json');
+const steps = require('./documents/steps.json')
 
 var purpose = "not-selected";
 
@@ -70,7 +71,7 @@ const basicUseHandler = {
           .getResponse();
           
     }
-}
+};
 
 const formatSelectionHandler = {
     canHandle(handlerInput) {
@@ -104,7 +105,7 @@ const formatSelectionHandler = {
           .getResponse();
           
     }
-}
+};
 
 const videoHandler = {
     canHandle(handlerInput) {
@@ -137,7 +138,62 @@ const videoHandler = {
           .reprompt(speakOutput)
           .getResponse();
     }
-}
+};
+
+const trySayingHandler = {
+    canHandle(handlerInput) {
+        return (
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+                Alexa.getIntentName(handlerInput.requestEnvelope) === 'TrySaying') ||
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
+                handlerInput.requestEnvelope.request.arguments[0] === 'NewsInstructions')
+        );
+    },
+    handle(handlerInput) {
+        const speakOutput = "Try saying any of the messages below";
+        var inst_doc = require('./documents/trySaying.json');
+        
+        var listItems = [];
+        
+        for (var i = 0; i < steps[purpose].length; i++) {
+            listItems.push({
+                "primaryText": steps[purpose][i]["answer"],
+                "primaryAction": [
+                    {
+                        "type": "SetValue",
+                        "componentId": "plantList",
+                        "property": "headerTitle",
+                        "value": "Try Saying " + steps[purpose][i]["answer"]
+                    }
+                ],
+                "onPress": [
+                    {
+                        "type": "SpeakItem",
+                        "componentId": "plantList"
+                    }
+                ]
+            })
+        }
+        
+        inst_doc["mainTemplate"]["items"][0]["listItems"] = listItems;
+        
+        if (
+            Alexa.getSupportedInterfaces(handlerInput.requestEnvelope) [
+                'Alexa.Presentation.APL'
+            ]
+        ) {
+            handlerInput.responseBuilder.addDirective({
+                type: 'Alexa.Presentation.APL.RenderDocument',
+                document: inst_doc
+            });
+        }
+        
+        return handlerInput.responseBuilder
+          .speak(speakOutput)
+          .reprompt(speakOutput)
+          .getResponse();
+    }
+};
 
 const HelpIntentHandler = {
   canHandle(handlerInput) {
@@ -272,12 +328,13 @@ exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler,
     basicUseHandler,
+    formatSelectionHandler,
+    videoHandler,
+    trySayingHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     FallbackIntentHandler,
     SessionEndedRequestHandler,
-    formatSelectionHandler,
-    videoHandler,
     IntentReflectorHandler
   )
   .addErrorHandlers(ErrorHandler)
