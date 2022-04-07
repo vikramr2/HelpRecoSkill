@@ -199,34 +199,226 @@
             "answer": "alexa what is on my to do list"
         }
     ],
-    "lights0": [
-        "To use Hue bulbs, you must first connect the Hue Bridge to a power outlet as well as your router.",
-        "Find an open Ethernet port (see example picture) on your router and connect one end of the provided cable to it. Then connect the other end to the Hue Bridge.",
-        "You should see the three blue lights on the Bridge turn on, indicating that it is ready to be paired to your bulbs.",
-        "etc."
-        ],
-    "doorbell0": [
-        "Press the home button on your device, as seen in the example picture. Some newer devices do not have a physical home button (circled in red). Instead, swipe up from the bottom center of the screen (shown in the yellow hand icon).",
-        "If you do not have Ring account, tap CREATE ACCOUNT",
-        "You should now see a page titled What’s your email address?. Fill out the relevant information in the designated box (see the example picture for useful tips).",
-        "etc."
-        ],
-    "lights1": [
-        "To use Hue bulbs, you must first connect the Hue Bridge to a power outlet as well as your router.",
-        "Find an open Ethernet port (see example picture) on your router",
-        "Connect one end of the provided cable to it.",
-        "Connect the other end to the Hue Bridge.",
-        "You should see the three blue lights on the Bridge turn on",
-        "This means that it is ready to be paired to your bulbs.",
-        "etc."
-        ],
-    "doorbell1": [
-        "Press the home button on your device, as seen in the example picture.",
-        "Some newer devices do not have a physical home button (circled in red).",
-        "Instead, swipe up from the bottom center of the screen (shown in the yellow hand icon).",
-        "If you do not have Ring account, tap CREATE ACCOUNT",
-        "You should now see a page titled What’s your email address?.",
-        "Fill out the relevant information in the designated box (see the example picture for useful tips).",
-        "etc."
-        ]
+    "bulb": [
+        {
+            "step": "First, press the home button on your device, as seen in the example picture. Some newer devices do not have a physical home button (circled in red). Instead, swipe up from the bottom center of the screen (shown in the yellow hand icon). Pressing the home button will take you to the home screen where you will need to find the Alexa app on one of your home screen pages (see the icon below). Tap this icon (circled in green).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb1.jpg"
+        },
+        {
+            "step": "Once the app is open, you should see the screen similar to the example picture. Tap the “Devices” icon on the bottom right of the example picture (circled in red).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb2.jpg"
+        },
+        {
+            "step": "Click on the plus icon on the top right of the example picture (circled in red). This will allow you to customize what devices the Alexa application, and in extension your Amazon Echo, is connected to.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb3.jpg"
+        },
+        {
+            "step": "Tap “Add Device”.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb4.jpg"
+        },
+        {
+            "step": "You will see a list of popular brands, followed by categories of devices that can work with Alexa. To add your Echo, tap “Light” under “ALL DEVICES” (circled in red).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb5.jpg"
+        },
+        {
+            "step": "Select the brand of your plug. In this case, we are using the Philips Hue light. Scroll down and tap on Philips Hue. If you are using another brand, tap the brand name of your light.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb6.jpg"
+        },
+        {
+            "step": "If your Philips Hue has a Bluetooth logo on the light bulb, tap on “YES” (circled in red) to continue setting up your lightbulb with your Amazon Echo device.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb7.jpg"
+        },
+        {
+            "step": "Your Alexa app is now ready to connect your Philips Hue lightbulb to your Echo Show. Make sure your Echo Show software is up to date by saying, “Alexa, is your software up to date?”(circled in green). Also, make sure your Hue lightbulb is within 30 feet of your Echo device. Then turn it off and on again to activate pairing mode. Once done, tap on “Discover Devices”(circled in red) to search for your Philips Hue.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb8.jpg"
+        },
+        {
+            "step": "The Alexa App will now be looking for your Philips Hue light. Please wait as this process may take up to 45 seconds.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb9.jpg"
+        },
+        {
+            "step": "Your Philips Hue light has been added to your Amazon account. Please tap on “SET UP DEVICE”(circled in red) to continue setting up your device.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb10.jpg"
+        },
+        {
+            "step": "You will now see a list of rooms that your Philips Hue light may be assigned to. Please tap on the room that your Philips Hue was installed in and then tap on “ADD TO GROUP”(circled in red). If you would like to skip this step, which is not recommended, please tap on “SKIP”",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb11.jpg"
+        },
+        {
+            "step": "Your light has now been added to your assigned room. You can now refer to your Philips Hue light using your room name and device type (i.e., Bedroom lights) instead of the device name. For example, one could say “Alexa, turn on the bedroom light” if your light is was assigned to the bedroom. Please tap on “CONTINUE”(circled in red) to proceed with setting up your Philips Hue light.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb12.jpg"
+        },
+        {
+            "step": "You can now practice a few commands with your Philips Hue lightbulb. If you would like to proceed with practice, tap on “GET STARTED” (circled in green). If you would like to skip this step, tap on “LATER” (circled in red). Skip to Step 16 if you want to skip this introduction, which is not recommended.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb13.jpg"
+        },
+        {
+            "step": "You will now be able to choose the device that you would like to use for your introduction. Please tap on the device you prefer.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb14.jpg"
+        },
+        {
+            "step": "You will now be able to play the introduction on your Echo Show. Please tap on “CONTINUE”(circled in red) to finish your set-up.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb15.jpg"
+        },
+        {
+            "step": "Congratulations! You have successfully set up your Philips Hue light. Your Philips Hue light is now ready for use. Tap on “DONE”(circled in red) to finish your set-up.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/bulb/bulb16.jpg"
+        }
+    ],
+    "plug": [
+        {
+            "step": "Press the home button on your device, as seen in the example picture. Some newer devices do not have a physical home button (circled in red). Instead, swipe up from the bottom center of the screen (shown in the yellow hand icon). Pressing the home button will take you to the home screen where you will need to find the Alexa app on one of your home screen pages (see the icon below). Tap this icon (circled in green).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug1.jpg"
+        },
+        {
+            "step": "Once the app is open, you should see the screen similar to the example picture. Tap the “Devices” icon on the bottom right of the example picture (circled in red)",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug2.jpg"
+        },
+        {
+            "step": "Click on the plus icon on the top right of the example picture (circled in red). This will allow you to customize what devices Alexa application is connected to.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug3.jpg"
+        },
+        {
+            "step": "Tap “Add Device” (circled in red).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug4.jpg"
+        },
+        {
+            "step": "You will see a list of popular brands, followed by categories of devices that can work with Alexa. To add your Smart Plug, tap “Plug” under “ALL DEVICES” (circled in red).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug5.jpg"
+        },
+        {
+            "step": "Select the brand of your plug. In this case, we are using the Amazon smart plug. Tap Amazon (circled in red). If you are using another brand, tap the brand name of your plug.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug6.jpg"
+        },
+        {
+            "step": "You will be prompted for permission to access your camera to continue the process to connect your Amazon Plug to Alexa app. Tap OK (circled in red).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug7.jpg"
+        },
+        {
+            "step": "You should see the steps to connect your Philips Hue device to Alexa. In this page, you can tap on Conditions of Use and here to read more detailed information and terms. Tap “NEXT” (circled in red) to proceed the connection process.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug8.jpg"
+        },
+        {
+            "step": "Find the QR code (see the picture circled in blue for reference) on the back of your plug or on the quick start guide included in the box. Once you find the barcode, tap SCAN BARCODE (circled in red) to begin scanning.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug9.jpg"
+        },
+        {
+            "step": "You should see four white square corners on your screen (circled in red). You should now able to scan the QR code by directing pointing your device’s camera to the QR code at the back of your plug or on the back of the quick start guide (make sure to position the QR code inside the white square corners).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug10.jpg"
+        },
+        {
+            "step": "Once you have scanned the QR code, the Alexa application will begin looking for your smart plug. Please be sure it is plugged in the desired outlet.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug11.jpg"
+        },
+        {
+            "step": "If the Alexa application was unable to connect with your plug using the QR code, you should see a screen similar the example picture below that describes the steps to connect your plug. Follow the steps and tap NEXT (circled in red) to proceed. If it was able to find the smart plug, you can ignore this step and proceed to the next one.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug12.jpg"
+        },
+        {
+            "step": "Select the Wi-Fi network that you want to use to connect your plug. Tap your network name (circled in red). Please note, your Wi-Fi network is unique to your living space. The Wi-Fi name shown below will not match your specific network.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug13.jpg"
+        },
+        {
+            "step": "Tap on “Enter Password”(circled in red) and enter the password of your WIFI network. If you would like to see your password, click on the square on the left(circled in blue) which is next to “Show password”.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug14.jpg"
+        },
+        {
+            "step": "You should now see the screen similar to the example picture. The Alexa app is now connecting your smart plug to the Wi-Fi network. If you would like to cancel the setup, which is not recommended, tap on “CANCEL SETUP” (circled in red).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug15.jpg"
+        },
+        {
+            "step": "Once the Alexa application has successfully found your plug, you should see athe screen similar to the example picture below indicating that Alexa has connected to your plug. Tap on “NEXT”(circled in red) to continue.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug16.jpg"
+        },
+        {
+            "step": "Alexa will now ask where your plug is located. Tap on the location that you would like to select, such as ‘Bedroom’ like shown below (circled in red). Once you have tapped on your desired location, tap on “ADD TO GROUP” (circled in green). If you would like to skip this step, tap on “SKIP” (circled in blue).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug17.jpg"
+        },
+        {
+            "step": "Your Smart Plug is now ready to use. Tap on “DONE”(circled in red) to go back to the main screen.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug18.jpg"
+        },
+        {
+            "step": "Now that your plug is connected to your Echo Show and can be used with Alexa, you can now tap Plugs (circled in red) to see the plug within the Alexa application. You will now name your smart plug.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug19.jpg"
+        },
+        {
+            "step": "In the PLUGS page, you should see your new plug indicated as New Device under its name (circled in red). Tap to setup the name.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug20.jpg"
+        },
+        {
+            "step": "Click on the Device Name to customize the name of your plug. We recommend naming it relevant to where it is plugged in as well as what device it is controlling. For example, “Alexa, turn on the bedroom fan.”",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug21.jpg"
+        },
+        {
+            "step": "Congratulations! You have successfully set up your smart plug. Your smart plug is now ready to use.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug/plug22.jpg"
+        }
+    ],
+    "book": [
+        {
+            "step": "To make calls on the Echo Show, you will need to do is add your contacts from your smartphone. The first step is to find the Alexa app on your smartphone. Once you locate the Alexa app (outlined in red), tap on it with your finger.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/book/book1.jpg"
+        },
+        {
+            "step": "After opening the Amazon Alexa App, your home screen should look like the picture below. Tap on the “Communicate” bottom tab (outlined in red) to navigate to the Communication page where you can add your contacts",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/book/book2.jpg"
+        },
+        {
+            "step": "You should now be on the Communication page of the Amazon Alexa App. Your screen should reflect the picture below. To begin adding your contacts, tap on the figure icon (outlined in red).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/book/book3.jpg"
+        },
+        {
+            "step": "Now, you can begin to add your mobile phone contacts to the Amazon Alexa app. This will allow you to call those contacts directly from your Echo Show device. The first way to add a contact is to tap on “Add Contact” (outlined in red).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/book/book4.jpg"
+        },
+        {
+            "step": "Your screen should now look similar to the picture below. To add a contact, you must enter at least a first name, last name, and mobile phone number (shown by red arrows). Tap on each box to type in the information. You also have the option to add in a nickname and relationship to the contact (shown by gold arrows). This allows you to refer to the same contact by more than one name.Once you are finished typing in the information, tap on “Save” (outlined in green) in the top right corner of your screen to exit.You have now added a contact.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/book/book5.jpg"
+        }
+    ],
+    "call": [
+        {
+            "step": "To make a call from your Echo Show, you will need to select a contact to call. The first step will be to navigate to the Communications menu. When you first turn on your device, your home screen should look similar to the photo below. You will notice a small white cursor on the right center edge of the screen (outlined in red). Swipe this cursor to the left to open the Communications menu.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/phone/phone1.jpg"
+        },
+        {
+            "step": "Your screen should now display the menu shown below. Tap on “Communicate” (outlined in green) to reveal the communications menu.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/phone/phone2.jpg"
+        },
+        {
+            "step": "You will now see the menu of communication options. To call a contact, tap on “Call” (outlined in red) to open your list of contacts.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/phone/phone3.jpg"
+        },
+        {
+            "step": "Now, your screen should look similar to the photo shown below. If you have recently called the contact from your device, they will appear in your list of “Recent” at the top. To choose a different contact, tap on “All Contacts” (outlined in red)at the bottom of the screen and scroll down to find your contact. Once you have found the contact you wish to call, tap on their name.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/phone/phone4.jpg"
+        },
+        {
+            "step": "Now that you have selectedthe name of the contact that you wish to call, your screen will look like the photo shown below.You will notice that for contacts who have connected an Alexa-enabled device to their mobile phone number, “Alexa-to-Alexa contact” will appear listed under their name next to a blue checkmark (outlined in red). This means that when you call the contact, both their mobile cell phone and Alexa-enabled device will ring. It is up to the other person to decide which device to answer from.If the contact does not have the blue checkmark and “Alexa-to-Alexa contact” listed under their name, you will only be able to dial their mobile cell phone.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/phone/phone5.jpg"
+        },
+        {
+            "step": "You are now ready to make a call. Tap “Call” (outlined in green) to dial your contact.A shortcut to calling contacts from your screen is to instead use voice commands. To call the name of a contact in your list, try saying, “Alexa, call (name of contact)” to dial",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/phone/phone6.jpg"
+        }
+    ],
+    "drop": [
+        {
+            "step": "Todrop-in on a contact, both of you will need to enable permissions. Start by navigating to a contact name the same way you would if you were trying to make a call. Scroll to the bottom half of the contact page until your screen looks like the photo below.",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/drop/drop1.jpg"
+        },
+        {
+            "step": "Now, tap on the Drop In slider to enable permissions for this contact (outlined in red).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/drop/drop2.jpg"
+        },
+        {
+            "step": "After tapping on the Drop In slider, you will receive a message explaining the feature (shown below). Once you have read it, tap “OK” (outlined in red). The slider should now appear to be turned on such as in the photo shownon the bottom (outlined in green).",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/drop/drop3.jpg"
+        },
+        {
+            "step": "Now that you have enabled Drop-In permissions for your contact, they will need to do the same from their Alexa-enabled device or Amazon Alexa app. Once you have both enabled permissions, you are ready to use the feature.To look through their camera or to share a voice message, try saying, “Alexa, drop in on (contact name).”",
+            "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/drop/drop4.jpg"
+        }
+    ]
  }

@@ -1,0 +1,60 @@
+{
+    "type": "APL",
+    "version": "1.7",
+    "license": "Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.\nSPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0\nLicensed under the Amazon Software License  http://aws.amazon.com/asl/",
+    "theme": "light",
+    "import": [
+        {
+            "name": "alexa-layouts",
+            "version": "1.4.0"
+        }
+    ],
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "AlexaImageList",
+                "headerTitle": "Select A device to learn about!",
+                "headerBackButton": true,
+                "backgroundImageSource": "https://hfa.s3.us-east-2.amazonaws.com/Help_Reco_BG2.png",
+                "imageAspectRatio": "square",
+                "imageMetadataPrimacy": true,
+                "imageScale": "best-fill",
+                "listItems": [
+                    {
+                        "primaryText": "Smart Lightbulb",
+                        "imageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/information.png",
+                        "primaryAction": [
+                            {
+                                "type": "SendEvent",
+                                "arguments": [
+                                    "vidselect",
+                                    "bulb"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "primaryText": "Smart Plugs",
+                        "imageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/plug.png",
+                        "primaryAction": [
+                            {
+                                "type": "SendEvent",
+                                "arguments": [
+                                    "vidselect",
+                                    "plug"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hintText": "Select a device!",
+                "theme": "light",
+                "id": "plantList"
+            }
+        ]
+    },
+    "layouts": {}
+}

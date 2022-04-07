@@ -1,0 +1,99 @@
+{
+    "type": "APL",
+    "version": "1.7",
+    "license": "Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.\nSPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0\nLicensed under the Amazon Software License  http://aws.amazon.com/asl/",
+    "theme": "light",
+    "import": [
+        {
+            "name": "alexa-layouts",
+            "version": "1.4.0"
+        }
+    ],
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "AlexaImageList",
+                "headerTitle": "Scroll Right to see more options...",
+                "headerBackButton": true,
+                "backgroundImageSource": "https://hfa.s3.us-east-2.amazonaws.com/Help_Reco_BG2.png",
+                "imageAspectRatio": "square",
+                "imageMetadataPrimacy": true,
+                "imageScale": "best-fill",
+                "listItems": [
+                    {
+                        "primaryText": "Phone Book",
+                        "imageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/book.png",
+                        "primaryAction": [
+                            {
+                                "type": "SendEvent",
+                                "arguments": [
+                                    "vidselect",
+                                    "book"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "primaryText": "Make Calls",
+                        "imageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/phone.png",
+                        "primaryAction": [
+                            {
+                                "type": "SendEvent",
+                                "arguments": [
+                                    "vidselect",
+                                    "call"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "primaryText": "Drop in",
+                        "imageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/drop.png",
+                        "primaryAction": [
+                            {
+                                "type": "SendEvent",
+                                "arguments": [
+                                    "vidselect",
+                                    "drop"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "primaryText": "PhoneLink",
+                        "imageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/phone_link.png",
+                        "primaryAction": [
+                            {
+                                "type": "SendEvent",
+                                "arguments": [
+                                    "reco",
+                                    "phonelink"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "primaryText": "ChitChat",
+                        "imageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/chitchat.png",
+                        "primaryAction": [
+                            {
+                                "type": "SendEvent",
+                                "arguments": [
+                                    "reco",
+                                    "chitchat"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hintText": "Scroll Right to see more options...",
+                "theme": "light",
+                "id": "plantList"
+            }
+        ]
+    },
+    "layouts": {}
+}

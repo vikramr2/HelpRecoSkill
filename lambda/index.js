@@ -7,6 +7,9 @@ const Alexa = require('ask-sdk-core');
 const urls = require('./documents/urls.json');
 const steps = require('./documents/steps.json')
 
+const notImplementedYet = ["bulb", "plug", "book", "call", "drop", "phonelink", "chitchat"];
+const stepsOnly = ["bulb", "plug", "book", "call", "drop"];
+
 var purpose = "not-selected";
 
 const LaunchRequestHandler = {
@@ -117,6 +120,12 @@ const videoHandler = {
         );
     },
     handle(handlerInput) {
+        if (notImplementedYet.includes(purpose)) {
+            return handlerInput.responseBuilder
+                .speak("Sorry, we do not have a video yet for setting up your " + purpose + ". Please come back later when we create one!")
+                .reprompt("Sorry, we do not have a video yet for setting up your " + purpose + ". Please come back later when we create one!")
+                .getResponse();
+        }
         const speakOutput = "Here is a video on " + purpose;
         var video_doc = require('./documents/video.json');
         
@@ -146,54 +155,180 @@ const trySayingHandler = {
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
                 Alexa.getIntentName(handlerInput.requestEnvelope) === 'TrySaying') ||
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
-                handlerInput.requestEnvelope.request.arguments[0] === 'NewsInstructions')
+                handlerInput.requestEnvelope.request.arguments[0] === 'NewsInstructions') ||
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
+                handlerInput.requestEnvelope.request.arguments[0] === 'stepnext') ||
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
+                handlerInput.requestEnvelope.request.arguments[0] === 'stepback')
         );
     },
     handle(handlerInput) {
-        const speakOutput = "Try saying any of the messages below";
-        var inst_doc = require('./documents/trySaying.json');
-        
-        var listItems = [];
-        
-        for (var i = 0; i < steps[purpose].length; i++) {
-            listItems.push({
-                "primaryText": steps[purpose][i]["answer"],
-                "primaryAction": [
-                    {
-                        "type": "SetValue",
-                        "componentId": "plantList",
-                        "property": "headerTitle",
-                        "value": "Try Saying " + steps[purpose][i]["answer"]
-                    }
-                ],
-                "onPress": [
-                    {
-                        "type": "SpeakItem",
-                        "componentId": "plantList"
-                    }
+        if (!(stepsOnly.includes(purpose))) {
+            const speakOutput = "Try saying any of the messages below";
+            var inst_doc = require('./documents/trySaying.json');
+            
+            var listItems = [];
+            
+            for (var i = 0; i < steps[purpose].length; i++) {
+                listItems.push({
+                    "primaryText": steps[purpose][i]["answer"],
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList",
+                            "property": "headerTitle",
+                            "value": "Try Saying " + steps[purpose][i]["answer"]
+                        }
+                    ],
+                    "onPress": [
+                        {
+                            "type": "SpeakItem",
+                            "componentId": "plantList"
+                        }
+                    ]
+                })
+            }
+            
+            inst_doc["mainTemplate"]["items"][0]["listItems"] = listItems;
+            
+            if (
+                Alexa.getSupportedInterfaces(handlerInput.requestEnvelope) [
+                    'Alexa.Presentation.APL'
                 ]
-            })
+            ) {
+                handlerInput.responseBuilder.addDirective({
+                    type: 'Alexa.Presentation.APL.RenderDocument',
+                    document: inst_doc
+                });
+            }
+            
+            return handlerInput.responseBuilder
+              .speak(speakOutput)
+              .reprompt(speakOutput)
+              .getResponse();
+        } else {
+            const card_doc = require('./documents/stepCard.json');
+            
+            var mover = 1;
+            if (handlerInput.requestEnvelope.request.arguments[1] === 'back') {
+                mover = -1;
+            }
+            
+            var atts = handlerInput.attributesManager.getSessionAttributes();
+            if (atts.hasOwnProperty('cheeseno')) {
+                atts.cheeseno += mover;
+                if (atts.cheeseno === -1) atts.cheeseno = 0;
+            } else {
+                atts.cheeseno = 0;
+            }
+            
+            if (atts.cheeseno === steps[purpose].length) {
+                return handlerInput.responseBuilder
+                    .speak("Have fun using your smart " + purpose + "!")
+                    .reprompt("Have fun using your smart " + purpose + "!")
+                    .getResponse();
+            }
+            
+            var doc_data = steps[purpose][atts.cheeseno];
+            handlerInput.attributesManager.setSessionAttributes(atts);
+            
+            card_doc["mainTemplate"]["items"][0]["imageSource"] = doc_data["image"];
+            card_doc["mainTemplate"]["items"][0]["bodyText"] = doc_data["step"];
+            
+            if (purpose === 'plug' || purpose === 'bulb') {
+                card_doc["mainTemplate"]["items"][0]["headerTitle"] = "Setting up your smart " + purpose;
+            } else {
+                card_doc["mainTemplate"]["items"][0]["headerTitle"] = purpose;
+            }
+            
+            var speakOutput = doc_data["step"];
+            
+            if (
+                Alexa.getSupportedInterfaces(handlerInput.requestEnvelope) [
+                    'Alexa.Presentation.APL'
+                ]
+            ) {
+                handlerInput.responseBuilder.addDirective({
+                    type: 'Alexa.Presentation.APL.RenderDocument',
+                    document: card_doc
+                });
+            }
+            
+            return handlerInput.responseBuilder
+              .speak(speakOutput)
+              .reprompt(speakOutput)
+              .getResponse();
         }
+    }
+};
+
+const envControlHandler = {
+    canHandle(handlerInput) {
+        return (
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+                Alexa.getIntentName(handlerInput.requestEnvelope) === 'EnvControls') ||
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
+                handlerInput.requestEnvelope.request.arguments[0] === 'Environment')
+        );
+    },
+    handle(handlerInput) {
+        const speakOutput = "Select a device";
         
-        inst_doc["mainTemplate"]["items"][0]["listItems"] = listItems;
+        var env_doc = require('./documents/envControls.json');
         
+        // Check to make sure the device supports APL
         if (
-            Alexa.getSupportedInterfaces(handlerInput.requestEnvelope) [
-                'Alexa.Presentation.APL'
-            ]
+          Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+            'Alexa.Presentation.APL'
+          ]
         ) {
-            handlerInput.responseBuilder.addDirective({
-                type: 'Alexa.Presentation.APL.RenderDocument',
-                document: inst_doc
-            });
+          // add a directive to render our simple template
+          handlerInput.responseBuilder.addDirective({
+            type: 'Alexa.Presentation.APL.RenderDocument',
+            document: env_doc,
+          });
         }
-        
+    
         return handlerInput.responseBuilder
           .speak(speakOutput)
           .reprompt(speakOutput)
           .getResponse();
     }
-};
+}
+
+const SocialCommHandler = {
+    canHandle(handlerInput) {
+        return (
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+                Alexa.getIntentName(handlerInput.requestEnvelope) === 'SocialComm') ||
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
+                handlerInput.requestEnvelope.request.arguments[0] === 'Social')
+        );
+    },
+    handle(handlerInput) {
+        const speakOutput = "Select an application";
+        
+        var soc_doc = require('./documents/socialComm.json');
+        
+        // Check to make sure the device supports APL
+        if (
+          Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+            'Alexa.Presentation.APL'
+          ]
+        ) {
+          // add a directive to render our simple template
+          handlerInput.responseBuilder.addDirective({
+            type: 'Alexa.Presentation.APL.RenderDocument',
+            document: soc_doc,
+          });
+        }
+    
+        return handlerInput.responseBuilder
+          .speak(speakOutput)
+          .reprompt(speakOutput)
+          .getResponse();
+    }
+}
 
 const HelpIntentHandler = {
   canHandle(handlerInput) {
@@ -331,6 +466,8 @@ exports.handler = Alexa.SkillBuilders.custom()
     formatSelectionHandler,
     videoHandler,
     trySayingHandler,
+    envControlHandler,
+    SocialCommHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     FallbackIntentHandler,

@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "reco me",
+      "invocationName": "user manuals",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -90,6 +90,30 @@
             "steps",
             "give me suggestions on what to say for {basicuse}"
           ]
+        },
+        {
+          "name": "EnvControls",
+          "slots": [],
+          "samples": [
+            "outlets",
+            "outlet",
+            "plugs",
+            "plug",
+            "lights",
+            "light",
+            "environmental controls"
+          ]
+        },
+        {
+          "name": "SocialComm",
+          "slots": [],
+          "samples": [
+            "social communication please",
+            "open social communication",
+            "communication",
+            "social",
+            "social communication"
+          ]
         }
       ],
       "types": [
@@ -170,5 +194,5 @@
       ]
     }
   },
-  "version": "9"
+  "version": "12"
 }
