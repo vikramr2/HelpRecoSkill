@@ -114,6 +114,14 @@
             "social",
             "social communication"
           ]
+        },
+        {
+          "name": "RecoCard",
+          "slots": [],
+          "samples": [
+            "phone link",
+            "chit chat"
+          ]
         }
       ],
       "types": [
@@ -194,5 +202,5 @@
       ]
     }
   },
-  "version": "12"
+  "version": "13"
 }

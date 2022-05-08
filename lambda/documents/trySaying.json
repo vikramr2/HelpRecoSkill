@@ -18,7 +18,11 @@
                 "type": "AlexaTextList",
                 "headerTitle": "Try Saying the following",
                 "headerBackButton": true,
-                "backgroundImageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/Help_Reco_BG2.jpg",
+                "headerBackButtonCommand": {
+                    "type":"SendEvent",
+                    "arguments":["intro"]
+                },
+                "backgroundImageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/Help_Reco_BG2.png",
                 "listItems": [
                     {
                         "primaryText": "Peonies & Petals Nursery",
@@ -33,7 +37,7 @@
                     }
                 ],
                 "touchForward": true,
-                "theme": "light",
+                "theme": "dark",
                 "id": "plantList",
                 "speech": "Try Saying the following"
             }

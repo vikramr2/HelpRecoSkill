@@ -2,7 +2,7 @@
     "type": "APL",
     "version": "1.7",
     "license": "Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.\nSPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0\nLicensed under the Amazon Software License  http://aws.amazon.com/asl/",
-    "theme": "light",
+    "theme": "dark",
     "import": [
         {
             "name": "alexa-layouts",
@@ -18,14 +18,18 @@
                 "type": "AlexaImageList",
                 "headerTitle": "Select A device to learn about!",
                 "headerBackButton": true,
-                "backgroundImageSource": "https://hfa.s3.us-east-2.amazonaws.com/Help_Reco_BG2.png",
+                "headerBackButtonCommand": {
+                    "type":"SendEvent",
+                    "arguments":["intro"]
+                }, 
+                "backgroundImageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/Help_Reco_BG2.png",
                 "imageAspectRatio": "square",
                 "imageMetadataPrimacy": true,
                 "imageScale": "best-fill",
                 "listItems": [
                     {
                         "primaryText": "Smart Lightbulb",
-                        "imageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/information.png",
+                        "imageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/lightbulb2.png",
                         "primaryAction": [
                             {
                                 "type": "SendEvent",
@@ -51,7 +55,7 @@
                     }
                 ],
                 "hintText": "Select a device!",
-                "theme": "light",
+                "theme": "dark",
                 "id": "plantList"
             }
         ]

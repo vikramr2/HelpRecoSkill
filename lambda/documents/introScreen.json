@@ -156,19 +156,19 @@
         "items": [
             {
                 "type": "Container",
-                "theme": "light",
+                "theme": "dark",
                 "items": [
                     {
                         "type": "AlexaBackground",
                         "description": "Set background Image",
-                        "backgroundImageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/Help_Reco_BG2.jpg",
+                        "backgroundImageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/Help_Reco_BG2.png",
                         "backgroundScale": "best-fill",
                         "colorOverlay": false
                     },
                     {
                         "description": "Use Responsive Header accross all Hubs",
                         "type": "AlexaHeader",
-                        "theme": "light",
+                        "theme": "dark",
                         "headerTitle": "What would you like to see?",
                         "headerDivider": true
                     },
