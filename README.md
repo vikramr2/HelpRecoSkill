@@ -17,6 +17,9 @@ The Help and Recommendation Application attempts to adress these issues.
 5. You can then enter the link to this repository to model your skill after this one.
 
 ## Snapshots
-![alt-text-1](snapshots/1.png "title-1") ![alt-text-2](snapshots/2.png "title-2")
-![alt-text-1](snapshots/3.png "title-1") ![alt-text-2](snapshots/4.png "title-2")
-![alt-text-1](snapshots/5.png "title-1") ![alt-text-2](snapshots/6.png "title-2")
+![alt-text-1](snapshots/1.png "title-1") 
+![alt-text-2](snapshots/2.png "title-2")
+![alt-text-1](snapshots/3.png "title-1") 
+![alt-text-2](snapshots/4.png "title-2")
+![alt-text-1](snapshots/5.png "title-1") 
+![alt-text-2](snapshots/6.png "title-2")
