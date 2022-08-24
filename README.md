@@ -17,9 +17,9 @@ The Help and Recommendation Application attempts to adress these issues.
 5. You can then enter the link to this repository to model your skill after this one.
 
 ## Snapshots
-![alt-text-1](snapshots/1.png) 
-![alt-text-2](snapshots/2.png)
-![alt-text-1](snapshots/3.png) 
-![alt-text-2](snapshots/4.png)
-![alt-text-1](snapshots/5.png) 
-![alt-text-2](snapshots/6.png)
+![alt-text-1](https://raw.githubusercontent.com/vikramr2/HelpRecoSkill/main/snapshots/1.jpg)
+![alt-text-1](https://raw.githubusercontent.com/vikramr2/HelpRecoSkill/main/snapshots/2.jpg)
+![alt-text-1](https://raw.githubusercontent.com/vikramr2/HelpRecoSkill/main/snapshots/3.jpg)
+![alt-text-1](https://raw.githubusercontent.com/vikramr2/HelpRecoSkill/main/snapshots/4.jpg)
+![alt-text-1](https://raw.githubusercontent.com/vikramr2/HelpRecoSkill/main/snapshots/5.jpg)
+![alt-text-1](https://raw.githubusercontent.com/vikramr2/HelpRecoSkill/main/snapshots/6.jpg)
