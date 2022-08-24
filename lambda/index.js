@@ -7,12 +7,26 @@ const Alexa = require('ask-sdk-core');
 const urls = require('./documents/urls.json');
 const steps = require('./documents/steps.json')
 
+// These Alexa uses do not have instructions created by the Human Factors and Aging Laboratory
 const notImplementedYet = ["bulb", "plug", "book", "call", "drop", "phonelink", "chitchat"];
+
+// These Alexa uses only have enumerated steps rather than suggestions on what to say to the Alexa device
 const stepsOnly = ["bulb", "plug", "book", "call", "drop"];
 
+// This is the Alexa that the app will guide the user through
+// For now, we set this to be unselected
 var purpose = "not-selected";
 
+/** 
+ * This is the handler that will open when the user says "Alexa Open User Manuals"
+ * This shall serve as the initial gateway into the application
+ */
 const LaunchRequestHandler = {
+  /** Check whether this handler matches user input
+   * 
+   * @param {Object} handlerInput Compressed user input data
+   * @returns Boolean determining whether this is the handler to be triggered based on user input
+   */
   canHandle(handlerInput) {
     return (
       // If we consider the launch screen and the home screen the same, then let's have
@@ -20,8 +34,23 @@ const LaunchRequestHandler = {
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest'
     );
   },
+
+  /** Process user input
+   * 
+   * @param {Object} handlerInput Compressed user input data
+   * @returns Alexa response object based on user input
+   */
   handle(handlerInput) {
     const speakOutput = "What would you like to see?";
+
+    /* 
+    GUI response to open upon triggering this handler.
+
+    NOTE: In Alexa development, GUI responses are written in Alexa Presentation Language (APL). This is a DOM like language (like HTML),
+          where components are stored in a JSON file format. For more reference, visit the link below:
+
+            https://developer.amazon.com/en-US/docs/alexa/alexa-design/apl.html
+    */
     var intro_screen = require('./documents/introScreen.json');
 
     // Check to make sure the device supports APL
@@ -32,7 +61,7 @@ const LaunchRequestHandler = {
     ) {
       // add a directive to render our simple template
       handlerInput.responseBuilder.addDirective({
-        type: 'Alexa.Presentation.APL.RenderDocument',
+        type: 'Alexa.Presentation.APL.RenderDocument',  // Render the json document above
         document: intro_screen,
       });
     }
@@ -44,15 +73,32 @@ const LaunchRequestHandler = {
   },
 };
 
+/**
+ * This is a handler for the event that the user needs help with a basic use.
+ * Examples of basic uses include "Checking the Weather", "Making a Grocery List", etc.
+ */
 const basicUseHandler = {
+    /** Check whether this handler matches user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Boolean determining whether this is the handler to be triggered based on user input
+     */
     canHandle(handlerInput) {
+        // Either the user had triggered this event through one of the speech triggers set in the graphical developer interface
+        // Or an APL has been triggered through a button selection on the GUI
         return (
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-                Alexa.getIntentName(handlerInput.requestEnvelope) === 'BasicUses') ||
+                Alexa.getIntentName(handlerInput.requestEnvelope) === 'BasicUses') ||                     // Speech trigger
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
-                handlerInput.requestEnvelope.request.arguments[0] === 'Basic')
+                handlerInput.requestEnvelope.request.arguments[0] === 'Basic')                            // GUI trigger
         );
     },
+
+    /** Process user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Alexa response object based on user input
+     */
     handle(handlerInput) {
         const speakOutput = "Select a basic use";
         var basic_uses = require('./documents/basicUses.json');
@@ -76,7 +122,16 @@ const basicUseHandler = {
     }
 };
 
+/**
+ * This is a handler for format selection.
+ * i.e. the screen that asks the user whether the instructions should be in a video or a verbal step by step format
+ */
 const formatSelectionHandler = {
+    /** Check whether this handler matches user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Boolean determining whether this is the handler to be triggered based on user input
+     */
     canHandle(handlerInput) {
         return (
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
@@ -85,10 +140,17 @@ const formatSelectionHandler = {
                 handlerInput.requestEnvelope.request.arguments[0] === 'vidselect')
         );
     },
+
+    /** Process user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Alexa response object based on user input
+     */
     handle(handlerInput) {
         const speakOutput = "Would you like written instructions or a video?";
         var format_selection = require('./documents/formatSelection.json');
         
+        // Set purpose to be the Alexa use specified from the previous command given by the user
         purpose = handlerInput.requestEnvelope.request.arguments[1];
         
         if (
@@ -110,7 +172,15 @@ const formatSelectionHandler = {
     }
 };
 
+/**
+ * This handler will play an instructional video on the purpose specified by the user.
+ */
 const videoHandler = {
+    /** Check whether this handler matches user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Boolean determining whether this is the handler to be triggered based on user input
+     */
     canHandle(handlerInput) {
         return (
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
@@ -119,16 +189,26 @@ const videoHandler = {
                 handlerInput.requestEnvelope.request.arguments[0] === 'NewsVideo')
         );
     },
+
+    /** Process user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Alexa response object based on user input
+     */
     handle(handlerInput) {
+        // If a video has not been implemented yet by the Human Factors and Aging Laboratory, give the following message
+        // NOTE: this is subject to change as HFA WILL upload more videos!
         if (notImplementedYet.includes(purpose)) {
             return handlerInput.responseBuilder
                 .speak("Sorry, we do not have a video yet for setting up your " + purpose + ". Please come back later when we create one!")
                 .reprompt("Sorry, we do not have a video yet for setting up your " + purpose + ". Please come back later when we create one!")
                 .getResponse();
         }
+
         const speakOutput = "Here is a video on " + purpose;
         var video_doc = require('./documents/video.json');
         
+        // Load the url to the video and inject it into the media player GUI's APL data
         video_doc["mainTemplate"]["items"][0]["items"][1]["source"] = urls[purpose];
         
         if (
@@ -149,24 +229,53 @@ const videoHandler = {
     }
 };
 
+/**
+ * This handler is for lists of possible things to say to the Alexa.
+ * 
+ * Alexa will give a list of things to say such as 
+ * 
+ *   "Try saying, Alexa what will the weather be like today?"
+ * 
+ * And the user can try saying those things.
+ */
 const trySayingHandler = {
+    /** Check whether this handler matches user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Boolean determining whether this is the handler to be triggered based on user input
+     */
     canHandle(handlerInput) {
         return (
+            // First step, Verbal input
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
                 Alexa.getIntentName(handlerInput.requestEnvelope) === 'TrySaying') ||
+
+            // First step, GUI input
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
                 handlerInput.requestEnvelope.request.arguments[0] === 'NewsInstructions') ||
+
+            // Next step, GUI input
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
                 handlerInput.requestEnvelope.request.arguments[0] === 'stepnext') ||
+
+            // Previous step, GUI input
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
                 handlerInput.requestEnvelope.request.arguments[0] === 'stepback')
         );
     },
+
+    /** Process user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Alexa response object based on user input
+     */
     handle(handlerInput) {
+        // If the use specified for instructions doesn't just include steps
         if (!(stepsOnly.includes(purpose))) {
             const speakOutput = "Try saying any of the messages below";
             var inst_doc = require('./documents/trySaying.json');
             
+            // List of json APL data for each possible saying to the Alexa 
             var listItems = [];
             
             for (var i = 0; i < steps[purpose].length; i++) {
@@ -189,6 +298,7 @@ const trySayingHandler = {
                 })
             }
             
+            // Inject list items into the GUI APL layout
             inst_doc["mainTemplate"]["items"][0]["listItems"] = listItems;
             
             if (
@@ -207,13 +317,16 @@ const trySayingHandler = {
               .reprompt(speakOutput)
               .getResponse();
         } else {
+            // If this is steps only, have step cards that allow the user to click ahead and back
             const card_doc = require('./documents/stepCard.json');
             
+            // Direction to move index of steps in given the user input (next/back)
             var mover = 1;
             if (handlerInput.requestEnvelope.request.arguments[1] === 'back') {
                 mover = -1;
             }
             
+            // Increment steps by the mover
             var atts = handlerInput.attributesManager.getSessionAttributes();
             if (atts.hasOwnProperty('cheeseno')) {
                 atts.cheeseno += mover;
@@ -222,6 +335,7 @@ const trySayingHandler = {
                 atts.cheeseno = 0;
             }
             
+            // If index is out of range, we are done listing steps
             if (atts.cheeseno === steps[purpose].length) {
                 return handlerInput.responseBuilder
                     .speak("Have fun using your smart " + purpose + "!")
@@ -229,18 +343,21 @@ const trySayingHandler = {
                     .getResponse();
             }
             
+            // Inject current step data into the GUI APL layout
             var doc_data = steps[purpose][atts.cheeseno];
             handlerInput.attributesManager.setSessionAttributes(atts);
             
             card_doc["mainTemplate"]["items"][0]["imageSource"] = doc_data["image"];
             card_doc["mainTemplate"]["items"][0]["bodyText"] = doc_data["step"];
             
+            // Change title to gramatically match the current use in the title
             if (purpose === 'plug' || purpose === 'bulb') {
                 card_doc["mainTemplate"]["items"][0]["headerTitle"] = "Setting up your smart " + purpose;
             } else {
                 card_doc["mainTemplate"]["items"][0]["headerTitle"] = purpose;
             }
             
+            // Read out current step
             var speakOutput = doc_data["step"];
             
             if (
@@ -262,7 +379,17 @@ const trySayingHandler = {
     }
 };
 
+/**
+ * Handler for the environmental controls menu
+ * 
+ * This is for help using devices such as the Ring Doorbell, or Philips Hue Bulb
+ */
 const envControlHandler = {
+    /** Check whether this handler matches user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Boolean determining whether this is the handler to be triggered based on user input
+     */
     canHandle(handlerInput) {
         return (
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
@@ -271,6 +398,12 @@ const envControlHandler = {
                 handlerInput.requestEnvelope.request.arguments[0] === 'Environment')
         );
     },
+
+    /** Process user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Alexa response object based on user input
+     */
     handle(handlerInput) {
         const speakOutput = "Select a device";
         
@@ -296,7 +429,17 @@ const envControlHandler = {
     }
 }
 
+/**
+ * Handler for the social communications menu
+ * 
+ * This is for help using Alexa features such as Calling and Video Conferencing
+ */
 const SocialCommHandler = {
+    /** Check whether this handler matches user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Boolean determining whether this is the handler to be triggered based on user input
+     */
     canHandle(handlerInput) {
         return (
             (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
@@ -305,6 +448,12 @@ const SocialCommHandler = {
                 handlerInput.requestEnvelope.request.arguments[0] === 'Social')
         );
     },
+
+    /** Process user input
+     * 
+     * @param {Object} handlerInput Compressed user input data
+     * @returns Alexa response object based on user input
+     */
     handle(handlerInput) {
         const speakOutput = "Select an application";
         
