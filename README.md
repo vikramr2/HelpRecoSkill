@@ -7,8 +7,6 @@ Help and Recommendation Alexa skill source code. This application has been desig
   - [Usage](#usage)
   - [Snapshots](#snapshots)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 ## Introduction
 Older adults with mobility disabilities have much to gain from using voice-activated digital assistants (DHAs). Specifically, using a DHA can help older adults socially engage, perform enhanced activities of daily living that can promote well-being, and possibly promote independence and successful aging in place. Although older adults tend to have positive attitudes towards DHAs and existing older adult users engage with their DHA devices for a diverse range of activities, two key barriers to use commonly occur for older adults with mobility disabilities: 
 
