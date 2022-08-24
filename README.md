@@ -16,6 +16,13 @@ The Help and Recommendation Application attempts to adress these issues.
 4. Click on "Create Skill"
 5. You can then enter the link to this repository to model your skill after this one.
 
+## Usage
+This app can be used both on the testing suite in the Alexa Developer Console, as well as on an Alexa device using the same email as the one linked to your Amazon Developer account. Both GUI and voice based commands are recognized.
+  
+Navigate between step by step instructions as well as through linked videos on how to use different features on the Amazon Alexa. Find instructions and suggestions on how to check the weather, how to set a timer, and much more.
+  
+The Help and Recommend Application also gives suggestions on other Alexa skills that may be useful. Illustrations and snapshots of the application can be found further down.
+
 ## Snapshots
 ![alt-text-1](https://raw.githubusercontent.com/vikramr2/HelpRecoSkill/main/snapshots/1.jpg)
 ![alt-text-1](https://raw.githubusercontent.com/vikramr2/HelpRecoSkill/main/snapshots/2.jpg)
