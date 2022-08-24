@@ -36,6 +36,18 @@
                         "type": "AlexaBackground"
                     },
                     {
+                        "description": "Use Responsive Header accross all Hubs",
+                        "type": "AlexaHeader",
+                        "theme": "dark",
+                        "headerTitle": "Back",
+                        "headerDivider": true,
+                        "headerBackButton": true,
+                        "headerBackButtonCommand": {
+                            "type":"SendEvent",
+                            "arguments":["vidselect"]
+                        }
+                    },
+                    {
                         "type": "Video",
                         "height": "100%",
                         "width": "70vw",

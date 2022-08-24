@@ -31,7 +31,9 @@ const LaunchRequestHandler = {
     return (
       // If we consider the launch screen and the home screen the same, then let's have
       // the Launch Request Handler also handle the Navigate Home Intent.
-      Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest'
+      Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest' ||
+      (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
+            handlerInput.requestEnvelope.request.arguments[0] === 'intro')    
     );
   },
 
@@ -208,8 +210,9 @@ const videoHandler = {
         const speakOutput = "Here is a video on " + purpose;
         var video_doc = require('./documents/video.json');
         
+
         // Load the url to the video and inject it into the media player GUI's APL data
-        video_doc["mainTemplate"]["items"][0]["items"][1]["source"] = urls[purpose];
+        video_doc["mainTemplate"]["items"][0]["items"][2]["source"] = urls[purpose];
         
         if (
             Alexa.getSupportedInterfaces(handlerInput.requestEnvelope) [
@@ -365,10 +368,25 @@ const trySayingHandler = {
                     'Alexa.Presentation.APL'
                 ]
             ) {
-                handlerInput.responseBuilder.addDirective({
-                    type: 'Alexa.Presentation.APL.RenderDocument',
-                    document: card_doc
-                });
+                return handlerInput.responseBuilder
+                    .speak(speakOutput)
+                    .addDirective({
+                        type: 'Alexa.Presentation.APL.RenderDocument',
+                        token: 'StepToken',
+                        document: card_doc
+                    })
+                    .addDirective({
+                        type: 'Alexa.Presentation.APL.ExecuteCommands',
+                        token: 'StepToken',
+                        commands: [
+                          {
+                            type: 'Scroll',
+                            componentId: 'mainScreen',
+                            highlightMode: 'line',
+                          }
+                        ],
+                    })
+                    .getResponse();
             }
             
             return handlerInput.responseBuilder
@@ -469,6 +487,45 @@ const SocialCommHandler = {
           handlerInput.responseBuilder.addDirective({
             type: 'Alexa.Presentation.APL.RenderDocument',
             document: soc_doc,
+          });
+        }
+    
+        return handlerInput.responseBuilder
+          .speak(speakOutput)
+          .reprompt(speakOutput)
+          .getResponse();
+    }
+}
+
+const RecoCardHandler = {
+    canHandle(handlerInput) {
+        return (
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+                Alexa.getIntentName(handlerInput.requestEnvelope) === 'RecoCar') ||
+            (Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent' &&
+                handlerInput.requestEnvelope.request.arguments[0] === 'reco')
+        );
+    },
+    handle(handlerInput) {
+        purpose = handlerInput.requestEnvelope.request.arguments[1];
+        const speakOutput = steps[purpose]["text"];
+        var reco_doc = require('./documents/recoCard.json');
+        
+        reco_doc["mainTemplate"]["items"][0]["imageSource"] = steps[purpose]["image"];
+        reco_doc["mainTemplate"]["items"][0]["primaryText"] = steps[purpose]["title"];
+        reco_doc["mainTemplate"]["items"][0]["secondaryText"] = steps[purpose]["text"];
+        reco_doc["mainTemplate"]["items"][0]["button1PrimaryAction"][0]["source"] = steps[purpose]["link"];
+        
+        // Check to make sure the device supports APL
+        if (
+          Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+            'Alexa.Presentation.APL'
+          ]
+        ) {
+          // add a directive to render our simple template
+          handlerInput.responseBuilder.addDirective({
+            type: 'Alexa.Presentation.APL.RenderDocument',
+            document: reco_doc,
           });
         }
     
@@ -617,6 +674,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     trySayingHandler,
     envControlHandler,
     SocialCommHandler,
+    RecoCardHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     FallbackIntentHandler,

@@ -157,21 +157,26 @@
         "items": [
             {
                 "type": "Container",
-                "theme": "light",
+                "theme": "dark",
                 "items": [
                     {
                         "type": "AlexaBackground",
                         "description": "Set background Image",
-                        "backgroundImageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/Help_Reco_BG2.jpg",
+                        "backgroundImageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/Help_Reco_BG2.png",
                         "backgroundScale": "best-fill",
                         "colorOverlay": false
                     },
                     {
                         "description": "Use Responsive Header accross all Hubs",
                         "type": "AlexaHeader",
-                        "theme": "light",
+                        "theme": "dark",
                         "headerTitle": "How may I help you?",
-                        "headerDivider": true
+                        "headerDivider": true,
+                        "headerBackButton": true,
+                        "headerBackButtonCommand": {
+                            "type":"SendEvent",
+                            "arguments":["intro"]
+                        }
                     },
                     {
                         "description": "Use a sequence to display a horizontal scrolling list of aplDocs for Small Round Hubs",
@@ -233,12 +238,12 @@
                                     {
                                         "id": "NewsVideo",
                                         "name": "Video",
-                                        "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/video.png"
+                                        "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/video2.png"
                                     },
                                     {
                                         "id": "NewsInstructions",
                                         "name": "Instructions",
-                                        "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/news.png"
+                                        "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/news_enhanced.png"
                                     }
                                 ],
                                 "items": [

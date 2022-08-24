@@ -26,11 +26,21 @@
                 "detailType": "generic",
                 "detailImageAlignment": "right",
                 "headerTitle": "The Happy Cheese Plate",
+                "headerBackButton": true,
+                "headerBackButtonCommand": {
+                    "type":"SendEvent",
+                    "arguments":["intro"]
+                },
                 "imageBlurredBackground": true,
                 "imageAspectRatio": "square",
                 "imageSource": "${payload.demo.properties.imageSource}",
                 "imageCaption": "${payload.demo.properties.imageCaption}",
-                "bodyText": "${payload.demo.properties.bodyText}",
+                "item": [
+                    {
+                        "id": "StepText",
+                        "bodyText": "${payload.demo.properties.bodyText}"
+                    }
+                ],
                 "button1Text": "< Back",
                 "button1PrimaryAction": [
                     {

@@ -420,5 +420,17 @@
             "step": "Now that you have enabled Drop-In permissions for your contact, they will need to do the same from their Alexa-enabled device or Amazon Alexa app. Once you have both enabled permissions, you are ready to use the feature.To look through their camera or to share a voice message, try saying, “Alexa, drop in on (contact name).”",
             "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/drop/drop4.jpg"
         }
-    ]
+    ],
+    "phonelink": {
+        "title": "Phone Link",
+        "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/phone_link.png",
+        "text": "Phone Link connects Alexa to your Android phone or tablet, giving you the ability to read out and send text messages, make phone calls, locate a lost device, and play music and audio files.",
+        "link": "https://www.amazon.com/Phone-Link-Texting-Calling-Finder/dp/B0844ZTFM5/ref=lp_14284865011_1_2?s=digital-skills&ie=UTF8&qid=1590764614&sr=1-2"
+    },
+    "chitchat": {
+        "title": "ChitChat",
+        "image": "https://raw.githubusercontent.com/vikramr2/Assets/main/chitchat.png",
+        "text": "ChitChat is a cross platform chat service that enables you to chat with other platforms such as other Amazon Echoes, Google Homes, iOS or Android devices.",
+        "link": "https://www.amazon.com/Lazily-Inspired-ChitChat/dp/B071DFGYRG/ref=lp_17500693011_syps?s=digital-skills&ie=UTF8&qid=1591640901&sr=1-6"
+    }
  }

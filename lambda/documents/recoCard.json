@@ -1,0 +1,46 @@
+{
+    "type": "APL",
+    "version": "1.8",
+    "license": "Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.\nSPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0\nLicensed under the Amazon Software License  http://aws.amazon.com/asl/",
+    "import": [
+        {
+            "name": "alexa-layouts",
+            "version": "1.5.0"
+        }
+    ],
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "AlexaDetail",
+                "detailType": "location",
+                "detailImageAlignment": "right",
+                "headerTitle": "menu",
+                "headerBackButton": true,
+                "headerBackButtonCommand": {
+                    "type":"SendEvent",
+                    "arguments":["Social"]
+                },
+                "imageScale": "best-fill",
+                "imageAspectRatio": "square",
+                "imageAlignment": "right",
+                "imageSource": "${payload.detailImageRightData.image.sources[0].url}",
+                "primaryText": "AppName",
+                "secondaryText": "AppDescription",
+                "button1Text": "Learn More",
+                "button1Theme": "dark",
+                "button1PrimaryAction": [
+                    {
+                        "type": "OpenURL",
+                        "source": "https://www.amazon.com/"
+                    }
+                ],
+                "backgroundImageSource": "https://raw.githubusercontent.com/vikramr2/Assets/main/Help_Reco_BG2.png",
+                "theme": "dark",
+                "id": "plantDetail"
+            }
+        ]
+    }
+}
