@@ -1,6 +1,8 @@
 # HelpRecoSkill
 Help and Recommendation Alexa skill source code. This application has been designed by the Human Factors and Aging Laboratory at the University of Illinois at Urbana-Champaign.
-
+  
+[Technical Report][https://drive.google.com/file/d/1zaI9jCklJ_hInwPRUs11OaUj9gZEkKSv/view]
+  
 - [HelpRecoSkill](#helprecoskill)
   - [Introduction](#introduction)
   - [Installation](#installation)
